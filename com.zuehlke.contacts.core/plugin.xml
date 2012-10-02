@@ -19,5 +19,17 @@
             id="com.zuehlke.contacts.perspective">
       </perspective>
    </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.zuehlke.contacts.core.application"
+            name="Contacts Application">
+         <property
+               name="appName"
+               value="Contacts">
+         </property>
+      </product>
+   </extension>
 
 </plugin>
