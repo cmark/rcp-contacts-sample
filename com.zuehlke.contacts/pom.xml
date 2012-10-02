@@ -10,7 +10,6 @@
 	
 	<modules>
 		<module>../com.zuehlke.contacts.update</module>
-		<module>../com.zuehlke.contacts.target</module>
 	
 		<module>../com.zuehlke.contacts.core</module>
 		<module>../com.zuehlke.contacts.service.api</module>
@@ -21,6 +20,9 @@
 		<module>../com.zuehlke.contacts.ui.addressCheck.zipcity</module>
 		<module>../com.zuehlke.contacts.ui.intent.outlook</module>
 		<module>../com.zuehlke.contacts.ui.intent.skype</module>
+		
+		<module>../com.zuehlke.contacts.core.feature</module>
+		<module>../com.zuehlke.contacts.ui.feature</module>
 	</modules>
 	
 	<properties>
@@ -69,33 +71,38 @@
 				<version>${tycho-version}</version>
 				<configuration>
 					<resolver>p2</resolver>
-					<pomDependencies>consider</pomDependencies>
-					<target>
-						<artifact>
-							<groupId>com.zuehlke.contacts</groupId>
-							<artifactId>com.zuehlke.contacts.target</artifactId>
-							<version>1.0.0-SNAPSHOT</version>
-							<classifier>contacts</classifier>
-						</artifact>
-					</target>
-					<filters>
-						<!-- example 3: work around Equinox bug 348045 -->
-						<filter>
-							<type>p2-installable-unit</type>
-							<id>org.eclipse.equinox.servletbridge.extensionbundle</id>
-							<removeAll />
-						</filter>
-						<filter>
-							<type>p2-installable-unit</type>
-							<id>com.google.collect</id>
-							<removeAll />
-						</filter>
-					</filters>
+<!-- 					<pomDependencies>consider</pomDependencies> -->
+<!-- 					<target> -->
+<!-- 						<artifact> -->
+<!-- 							<groupId>com.zuehlke.contacts</groupId> -->
+<!-- 							<artifactId>com.zuehlke.contacts.target</artifactId> -->
+<!-- 							<version>1.0.0-SNAPSHOT</version> -->
+<!-- 							<classifier>contacts</classifier> -->
+<!-- 						</artifact> -->
+<!-- 					</target> -->
+<!-- 					<filters> -->
+<!-- 						example 3: work around Equinox bug 348045 -->
+<!-- 						<filter> -->
+<!-- 							<type>p2-installable-unit</type> -->
+<!-- 							<id>org.eclipse.equinox.servletbridge.extensionbundle</id> -->
+<!-- 							<removeAll /> -->
+<!-- 						</filter> -->
+<!-- 						<filter> -->
+<!-- 							<type>p2-installable-unit</type> -->
+<!-- 							<id>com.google.collect</id> -->
+<!-- 							<removeAll /> -->
+<!-- 						</filter> -->
+<!-- 					</filters> -->
 					<ignoreTychoRepositories>true</ignoreTychoRepositories>
 					<environments>
 						<environment>
 							<os>win32</os>
 							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
 							<arch>x86_64</arch>
 						</environment>
 					</environments>
