@@ -3,6 +3,7 @@
 
 <product name="Contacts product" uid="com.zuehlke.contacts.product" id="com.zuehlke.contacts.core.product" application="com.zuehlke.contacts.core.application" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
+
    <configIni use="default">
    </configIni>
 
@@ -12,12 +13,14 @@
 
    <windowImages/>
 
+
    <launcher>
       <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
+
 
    <vm>
    </vm>
@@ -32,8 +35,7 @@
    </features>
 
    <configurations>
-      <plugin id="com.zuehlke.contacts.service.local" autoStart="true" startLevel="0" />
-      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="2" />
    </configurations>
 
 </product>
