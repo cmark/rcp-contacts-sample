@@ -17,4 +17,39 @@
       [Enter License Description here.]
    </license>
 
+   <plugin
+         id="com.zuehlke.contacts.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.zuehlke.contacts.ui.addresscheck.maps"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.zuehlke.contacts.ui.addresscheck.zipcity"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.zuehlke.contacts.ui.intent.outlook"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.zuehlke.contacts.ui.intent.skype"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>

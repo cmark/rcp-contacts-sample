@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="com.zuehlke.contacts.core.feature_1.0.0.qualifier.jar" id="com.zuehlke.contacts.core.feature" version="1.0.0.qualifier">
+      <category name="com.zuehlke.contacts"/>
+   </feature>
+   <feature url="com.zuehlke.contacts.ui.feature_1.0.0.qualifier.jar" id="com.zuehlke.contacts.ui.feature" version="1.0.0.qualifier">
+      <category name="com.zuehlke.contacts"/>
+   </feature>
+   <category-def name="com.zuehlke.contacts" label="RCP Contacts Example"/>
+</site>
