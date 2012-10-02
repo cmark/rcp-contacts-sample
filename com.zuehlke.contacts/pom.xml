@@ -9,7 +9,7 @@
 	<packaging>pom</packaging>
 	
 	<modules>
-		<module>../com.zuehlke.contacts.repo</module>
+		<module>../com.zuehlke.contacts.update</module>
 		<module>../com.zuehlke.contacts.target</module>
 	
 		<module>../com.zuehlke.contacts.core</module>
