@@ -5,13 +5,66 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>com.zuehlke.contacts.ui.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
+	<groupId>com.zuehlke.contacts</groupId>
+	<version>1.0.0-SNAPSHOT</version>
 	<parent>
 		<groupId>com.zuehlke.contacts</groupId>
 		<artifactId>com.zuehlke.contacts</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>../com.zuehlke.contacts/pom.xml</relativePath>
 	</parent>
-	
-	<groupId>com.zuehlke.contacts</groupId>
-	<version>1.0.0-SNAPSHOT</version>
+
+	<properties>
+		<uitest.vmparams>-Dorg.eclipse.swtbot.search.timeout=10000 -Xmx1024m -XX:MaxPermSize=384m</uitest.vmparams>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<failIfNoTests>false</failIfNoTests>
+					<argLine>${ui.test.vmargs}</argLine>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+					<useUIHarness>true</useUIHarness>
+					<useUIThread>false</useUIThread>
+					<product>com.zuehlke.contacts.core.product</product>
+					<application>com.zuehlke.contacts.core.application</application>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<!-- MacOS specific vm arguments for UI testing -->
+		<profile>
+			<id>osx</id>
+			<activation>
+				<property>
+					<name>java.vendor.url</name>
+					<value>http://www.apple.com/</value>
+				</property>
+			</activation>
+			<properties>
+				<ui.test.vmargs>${uitest.vmparams} -XstartOnFirstThread</ui.test.vmargs>
+			</properties>
+<!-- 			<build> -->
+<!-- 				<pluginManagement> -->
+<!-- 					<plugins> -->
+<!-- 						<plugin> -->
+<!-- 							<groupId>org.eclipse.tycho</groupId> -->
+<!-- 							<artifactId>tycho-surefire-plugin</artifactId> -->
+<!-- 							<version>${tycho.version}</version> -->
+<!-- 							<configuration> -->
+<!-- 								<appArgLine>${uitest.vmparams} -XstartOnFirstThread</appArgLine> -->
+<!-- 							</configuration> -->
+<!-- 						</plugin> -->
+<!-- 					</plugins> -->
+<!-- 				</pluginManagement> -->
+<!-- 			</build> -->
+		</profile>
+	</profiles>
 </project>

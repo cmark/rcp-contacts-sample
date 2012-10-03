@@ -23,6 +23,8 @@
 
 		<module>../com.zuehlke.contacts.core.feature</module>
 		<module>../com.zuehlke.contacts.ui.feature</module>
+
+<!-- 		<module>../com.zuehlke.contacts.ui.tests</module> -->
 	</modules>
 
 	<properties>
@@ -79,12 +81,20 @@
 				<version>${tycho.version}</version>
 				<configuration>
 					<resolver>p2</resolver>
+					<target>
+						<artifact>
+							<groupId>com.zuehlke.contacts</groupId>
+							<artifactId>com.zuehlke.contacts.update</artifactId>
+							<version>1.0.0-SNAPSHOT</version>
+							<classifier>contacts</classifier>
+						</artifact>
+					</target>
 					<environments>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86_64</arch>
-						</environment>
+<!-- 						<environment> -->
+<!-- 							<os>win32</os> -->
+<!-- 							<ws>win32</ws> -->
+<!-- 							<arch>x86_64</arch> -->
+<!-- 						</environment> -->
 						<environment>
 							<os>macosx</os>
 							<ws>cocoa</ws>
@@ -107,17 +117,6 @@
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-surefire-plugin</artifactId>
-					<version>${tycho.version}</version>
-					<configuration>
-					<useUIHarness>true</useUIHarness>
-					<useUIThread>false</useUIThread>
-					<product>com.zuehlke.contacts.core.product</product>
-					<application>com.zuehlke.contacts.core.application</application>
-				</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-p2-repository-plugin</artifactId>
 					<version>${tycho.version}</version>
 				</plugin>
@@ -125,6 +124,20 @@
 					<groupId>org.codehaus.sonar</groupId>
 					<artifactId>sonar-maven3-plugin</artifactId>
 					<version>${sonar.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-surefire-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<useUIHarness>false</useUIHarness>
+						<includes>
+							<include>**/*Test.java</include>
+						</includes>
+						<!-- Kill test JVM if tests take more than 10 minutes (600 seconds) 
+							to finish -->
+						<forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -146,5 +159,4 @@
 			</plugin>
 		</plugins>
 	</reporting>
-
 </project>

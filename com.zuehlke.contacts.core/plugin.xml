@@ -24,10 +24,10 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="com.zuehlke.contacts.core.application"
-            name="Contacts Application">
+            name="Contacts product">
          <property
                name="appName"
-               value="Contacts">
+               value="Contacts product">
          </property>
       </product>
    </extension>
