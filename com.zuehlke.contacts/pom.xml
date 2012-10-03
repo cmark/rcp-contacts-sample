@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.zuehlke.contacts</groupId>
 	<artifactId>com.zuehlke.contacts</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>3.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -24,7 +24,7 @@
 		<module>../com.zuehlke.contacts.core.feature</module>
 		<module>../com.zuehlke.contacts.ui.feature</module>
 
-<!-- 		<module>../com.zuehlke.contacts.ui.tests</module> -->
+		<!-- <module>../com.zuehlke.contacts.ui.tests</module> -->
 	</modules>
 
 	<properties>
@@ -39,6 +39,7 @@
 		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
 		<sonar.surefire.reportsPath>../../target/surefire-reports/</sonar.surefire.reportsPath>
 		<sonar.skippedModules></sonar.skippedModules>
+		<proguardConfig>${project.basedir}/../com.zuehlke.contacts/proguard.cfg</proguardConfig>
 	</properties>
 
 	<repositories>
@@ -85,22 +86,48 @@
 						<artifact>
 							<groupId>com.zuehlke.contacts</groupId>
 							<artifactId>com.zuehlke.contacts.update</artifactId>
-							<version>1.0.0-SNAPSHOT</version>
+<!-- 							<version>1.0.0-SNAPSHOT</version> -->
 							<classifier>contacts</classifier>
 						</artifact>
 					</target>
 					<environments>
-<!-- 						<environment> -->
-<!-- 							<os>win32</os> -->
-<!-- 							<ws>win32</ws> -->
-<!-- 							<arch>x86_64</arch> -->
-<!-- 						</environment> -->
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
 						<environment>
 							<os>macosx</os>
 							<ws>cocoa</ws>
 							<arch>x86_64</arch>
 						</environment>
 					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.github.wvengen</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>proguard</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<skip>true</skip>
+					<obfuscate>true</obfuscate>
+					<injarNotExistsSkip>true</injarNotExistsSkip>
+					<injar>${project.build.finalName}.jar</injar>
+					<outjar>${project.build.finalName}-small.jar</outjar>
+					<outputDirectory>${project.build.directory}</outputDirectory>
+					<proguardInclude>${project.basedir}/proguard.cfg</proguardInclude>
+					<libs>
+						<lib>${java.home}/lib/rt.jar</lib>
+						<lib>${java.home}/lib/jsse.jar</lib>
+					</libs>
+					<proguardVersion>4.5</proguardVersion>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -139,6 +166,16 @@
 						<forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
 					</configuration>
 				</plugin>
+				<plugin>
+					<groupId>com.github.wvengen</groupId>
+					<artifactId>proguard-maven-plugin</artifactId>
+					<version>2.0.6</version>
+				</plugin>
+				<plugin>
+					<groupId>net.sf.proguard</groupId>
+					<artifactId>proguard</artifactId>
+					<version>4.5</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -159,4 +196,12 @@
 			</plugin>
 		</plugins>
 	</reporting>
+	<scm>
+		<url>https://github.com/CMark/rcp-contacts-sample</url>
+		<connection>scm:git:git://github.com:CMark/rcp-contacts-sample.git</connection>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/CMark/rcp-contacts-sample/issues</url>
+	</issueManagement>
 </project>

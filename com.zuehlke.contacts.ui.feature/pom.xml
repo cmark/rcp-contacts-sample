@@ -6,11 +6,11 @@
 	<artifactId>com.zuehlke.contacts.ui.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 	<groupId>com.zuehlke.contacts</groupId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>3.0.0-SNAPSHOT</version>
 	<parent>
 		<groupId>com.zuehlke.contacts</groupId>
 		<artifactId>com.zuehlke.contacts</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>3.0.0-SNAPSHOT</version>
 		<relativePath>../com.zuehlke.contacts/pom.xml</relativePath>
 	</parent>
 

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="com.zuehlke.contacts.core.feature_1.0.0.qualifier.jar" id="com.zuehlke.contacts.core.feature" version="1.0.0.qualifier">
-      <category name="com.zuehlke.contacts"/>
-   </feature>
-   <feature url="com.zuehlke.contacts.ui.feature_1.0.0.qualifier.jar" id="com.zuehlke.contacts.ui.feature" version="1.0.0.qualifier">
-      <category name="com.zuehlke.contacts"/>
-   </feature>
+   <feature url="features/com.zuehlke.contacts.core.feature_3.0.0.qualifier.jar" id="com.zuehlke.contacts.core.feature" version="3.0.0.qualifier"/>
+   <feature url="features/com.zuehlke.contacts.ui.feature_3.0.0.qualifier.jar" id="com.zuehlke.contacts.ui.feature" version="3.0.0.qualifier"/>
    <category-def name="com.zuehlke.contacts" label="RCP Contacts Example"/>
 </site>
